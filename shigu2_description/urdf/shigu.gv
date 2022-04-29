@@ -1,0 +1,35 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"camera_Link" [label="camera_Link"];
+"front_left_Link" [label="front_left_Link"];
+"front_right_Link" [label="front_right_Link"];
+"gps_Link" [label="gps_Link"];
+"imu_Link" [label="imu_Link"];
+"inertial_link" [label="inertial_link"];
+"laser_Link" [label="laser_Link"];
+"rear_left_Link" [label="rear_left_Link"];
+"rear_right_Link" [label="rear_right_Link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_footprint_joint" [label="xyz: 0 0 0.2 \nrpy: 0 -0 0"]
+"base_footprint_joint" -> "base_link"
+"base_link" -> "camera_joint" [label="xyz: 0.46706 -0.00012012 0.24821 \nrpy: 0 -0 0"]
+"camera_joint" -> "camera_Link"
+"base_link" -> "front_left_joint" [label="xyz: 0.32272 0.406 -0.021887 \nrpy: 0 -0 0"]
+"front_left_joint" -> "front_left_Link"
+"base_link" -> "front_right_joint" [label="xyz: 0.32272 -0.406 -0.021887 \nrpy: 0 -0 0"]
+"front_right_joint" -> "front_right_Link"
+"base_link" -> "gps_joint" [label="xyz: 0.332672 0 0.0132124 \nrpy: 0 -0 0"]
+"gps_joint" -> "gps_Link"
+"base_link" -> "imu_joint" [label="xyz: 0.35255 -1.683e-05 0.013212 \nrpy: 0 -0 0"]
+"imu_joint" -> "imu_Link"
+"base_link" -> "inertial_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"inertial_joint" -> "inertial_link"
+"base_link" -> "laser_joint" [label="xyz: 0.39256 0 0.34821 \nrpy: 0 -0 0"]
+"laser_joint" -> "laser_Link"
+"base_link" -> "rear_left_joint" [label="xyz: -0.32744 0.406 -0.021788 \nrpy: 0 -0 0"]
+"rear_left_joint" -> "rear_left_Link"
+"base_link" -> "rear_right_joint" [label="xyz: -0.32744 -0.406 -0.021788 \nrpy: 0 -0 0"]
+"rear_right_joint" -> "rear_right_Link"
+}

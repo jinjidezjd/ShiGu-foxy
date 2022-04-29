@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="shigu">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.010323 7.299E-08 0.083361"
+        rpy="0 0 0" />
+      <mass
+        value="22.952" />
+      <inertia
+        ixx="0.32518"
+        ixy="-2.7552E-14"
+        ixz="6.3797E-12"
+        iyy="0.75236"
+        iyz="-3.0488E-13"
+        izz="1.0394" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="84 255 159 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <!-- Base footprint is on the ground under the robot -->
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0.2" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <!-- Inertial link stores the robot's inertial information -->
+  <link name="inertial_link">
+    <inertial>
+      <mass value="46.034" />
+      <origin xyz="-0.00065 -0.085 0.062" />
+      <inertia ixx="0.6022" ixy="-0.02364" ixz="-0.1197" iyy="1.7386" iyz="-0.001544" izz="2.0296" />
+    </inertial>
+  </link>
+
+  <joint name="inertial_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="inertial_link" />
+  </joint>
+
+
+  <link
+    name="front_left_Link">
+    <inertial>
+      <origin
+        xyz="-2.2204E-16 0.077449 -2.2204E-16"
+        rpy="0 0 0" />
+      <mass
+        value="26.853" />
+      <inertia
+        ixx="0.1921"
+        ixy="-4.7186E-16"
+        ixz="1.2875E-10"
+        iyy="0.27647"
+        iyz="2.3229E-16"
+        izz="0.1921" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/front_left_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/front_left_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.32272 0.406 -0.021887"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="front_right_Link">
+    <inertial>
+      <origin
+        xyz="0 -0.077449 -1.1102E-16"
+        rpy="0 0 0" />
+      <mass
+        value="26.853" />
+      <inertia
+        ixx="0.1921"
+        ixy="-4.5762E-16"
+        ixz="-9.8199E-11"
+        iyy="0.27647"
+        iyz="-4.425E-16"
+        izz="0.1921" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/front_right_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/front_right_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_joint"
+    type="continuous">
+    <origin
+      xyz="0.32272 -0.406 -0.021887"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rear_left_Link">
+    <inertial>
+      <origin
+        xyz="0 0.077449 -1.1102E-16"
+        rpy="0 0 0" />
+      <mass
+        value="26.853" />
+      <inertia
+        ixx="0.1921"
+        ixy="3.6944E-16"
+        ixz="-6.0088E-11"
+        iyy="0.27647"
+        iyz="5.305E-16"
+        izz="0.1921" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/rear_left_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/rear_left_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.32744 0.406 -0.021788"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_left_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rear_right_Link">
+    <inertial>
+      <origin
+        xyz="0 -0.077449 1.1102E-16"
+        rpy="0 0 0" />
+      <mass
+        value="26.853" />
+      <inertia
+        ixx="0.1921"
+        ixy="3.2556E-16"
+        ixz="-1.1109E-10"
+        iyy="0.27647"
+        iyz="4.2064E-16"
+        izz="0.1921" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/rear_right_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/rear_right_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.32744 -0.406 -0.021788"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_right_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <link
+    name="camera_Link">
+    <inertial>
+      <origin
+        xyz="3.6835E-06 -2.2204E-16 -0.015013"
+        rpy="0 0 0" />
+      <mass
+        value="0.15658" />
+      <inertia
+        ixx="0.00038437"
+        ixy="-7.4198E-21"
+        ixz="-7.7187E-12"
+        iyy="2.3887E-05"
+        iyz="8.6645E-22"
+        izz="0.00038561" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/camera_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="169 169 169 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/camera_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="fixed">
+    <origin
+      xyz="0.46706 -0.00012012 0.24821"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="laser_Link">
+    <inertial>
+      <origin
+        xyz="0 -2.2204E-16 0.025"
+        rpy="0 0 0" />
+      <mass
+        value="1.0603" />
+      <inertia
+        ixx="0.00088357"
+        ixy="2.8635E-32"
+        ixz="4.8371E-20"
+        iyy="0.00088357"
+        iyz="1.2386E-19"
+        izz="0.0013254" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/laser_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="169 169 169 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/laser_Link.STL" />
+      </geometry>
+    </collision>
+
+  </link>
+  <joint
+    name="laser_joint"
+    type="fixed">
+    <origin
+      xyz="0.39256 0 0.34821"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu_Link">
+    <inertial>
+      <origin
+        xyz="-3.2019E-09 -9.7714E-09 -0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="0.0019328" />
+      <inertia
+        ixx="6.9807E-08"
+        ixy="1.5767E-11"
+        ixz="1.0698E-16"
+        iyy="7.0624E-08"
+        iyz="5.7701E-16"
+        izz="1.3238E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/imu_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="169 169 169 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/imu_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0.35255 -1.683E-05 0.013212"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gps_Link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/gps_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="169 169 169 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shigu2_description/meshes/20210826/gps_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_joint"
+    type="fixed">
+    <origin
+      xyz="0.332672458831791 0 0.0132124363075545"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+ <!-- the front section is created by solidworks automatically,the behind section is created by myself -->
+  <!-- color in gazebo -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+  <gazebo reference="front_left_Link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="rear_left_Link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="front_right_Link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="rear_right_Link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="laser_Link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="imu_Link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="camera_Link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="gps_Link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+<!-- motors and transmissions for the six wheels -->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_left_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_left_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_right_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_right_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+<!--world/cloister parametres-->
+<gazebo reference="front_left_Link">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>
+  </gazebo>  
+  <gazebo reference="front_right_Link">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>         
+  </gazebo>   
+  <gazebo reference="rear_left_Link">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>         
+  </gazebo> 
+  <gazebo reference="rear_right_Link">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>           
+  </gazebo>   
+
+ <!-- Gazebo Plugins -->
+
+  <!--差速驱动插件-->
+  <gazebo>
+    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <ros>
+        <namespace>/shigu</namespace>
+        <argument>/cmd_vel:cmd_vel</argument>
+        <argument>/odom:=odom</argument>
+      </ros>
+      <update_rate>100.0</update_rate>
+      <num_wheel_pairs>2</num_wheel_pairs>
+ 
+      <left_joint>front_left_joint</left_joint>
+      <left_joint>rear_left_joint</left_joint>
+      <wheel_separation>0.65</wheel_separation>
+      <wheel_diameter>0.4</wheel_diameter>
+ 
+      <right_joint>front_right_joint</right_joint>
+      <right_joint>rear_right_joint</right_joint>
+      <wheel_separation>0.65</wheel_separation>
+      <wheel_diameter>0.4</wheel_diameter>
+ 
+      <max_wheel_torque>18</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+ 
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>false</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <robot_base_frame>base_footprint</robot_base_frame>
+      <odometry_frame>odom</odometry_frame>
+      <!-- <odometry_source>world</odometry_source> -->
+    </plugin>
+  </gazebo>
+
+
+  <!--six axis imu sensor-->
+  <gazebo reference="imu_Link">
+    <sensor name="my_imu" type="imu">
+      <always_on>true</always_on>
+      <!-- Publish at 30 hz -->
+      <update_rate>30</update_rate>
+      <plugin name="my_imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <ros>
+          <!-- Will publish to /imu/data -->
+          <namespace>/imu</namespace>
+          <argument>~/out:=imu/data</argument>
+        </ros>
+        <!-- frame_name ommited, will be "imu_Link" -->
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+  <!--gps sensor is not allowed in ros2-->
+
+  <!-- laser sensor -->
+  <gazebo reference="laser_Link">
+    <sensor type="ray" name="rplidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>5.5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.4</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <update_rate>30</update_rate>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <namespace>/shigu</namespace>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- stereo camera -->
+      <joint name="stereo_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+        <parent link="camera_Link"/>
+        <child link="stereo_link"/>
+    </joint>
+    <link name="stereo_link"/>
+
+    <gazebo reference="camera_Link">  
+      <sensor type="multicamera" name="stereocamera">
+          <update_rate>60.0</update_rate>
+          <always_on>true</always_on>
+          <visualize>false</visualize>
+          <camera name="left">
+            <!-- <pose>0 0 0 0 0 0</pose> -->
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>10</far>
+            </clip>
+            <distortion>
+              <k1>0.0</k1>
+              <k2>0.0</k2>
+              <k3>0.0</k3>
+              <p1>0.0</p1>
+              <p2>0.0</p2>
+              <center>0.0 0.0</center>
+            </distortion>
+          </camera>
+          <camera name="right">
+            <!-- <pose>0 0 0 0 0 0</pose> -->
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>10</far>
+            </clip>
+            <distortion>
+              <k1>0.0</k1>
+              <k2>0.0</k2>
+              <k3>0.0</k3>
+              <p1>0.0</p1>
+              <p2>0.0</p2>
+              <center>-0.12 -0.12</center>
+            </distortion>
+          </camera>
+
+          <plugin name="plugin_name" filename="libgazebo_ros_camera.so">
+            <ros>
+              <namespace>shigu</namespace>
+              <!-- topics need to be prefixed with camera_name for remapping -->
+              <argument>custom_camera/left/image_raw:=zed_node/left/image_raw</argument>
+              <argument>custom_camera/right/image_raw:=zed_node/right/image_raw</argument>
+              <argument>custom_camera/left/camera_info:=zed_node/left/camera_info</argument>
+              <argument>custom_camera/right/camera_info:=zed_node/right/camera_info</argument>
+            </ros>
+
+            <camera_name>zed_node</camera_name>
+
+            <frame_name>camera_Link</frameName>
+          </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>

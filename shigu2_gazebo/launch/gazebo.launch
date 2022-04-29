@@ -1,0 +1,98 @@
+<!-- <?xml version="1.0"?>
+
+<launch>
+  <!--加载地图-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find shigu2_gazebo)/worlds/playpen.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+  <!-- 加载 controller configuration -->
+  <rosparam command="load" file="$(find shigu_control)/config/control.yaml" />
+
+  <!-- 加载 robot description -->
+  <include file="$(find shigu_description)/launch/description.launch" >
+  </include>
+
+
+  <!--加载机器人控制器 -->
+  <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+    args="shigu_joint_publisher shigu_velocity_controller"/>
+
+  <!-- 加载ekf定位节点 -->
+  <!--
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find shigu_control)/config/localization.yaml" />
+  </node>-->
+
+
+  <!--gps转换为里程计数据-->
+  <node name="gps_conv" pkg="gps_common" type="utm_odometry_node">
+    <remap from="odom" to="gps/odom"/>
+    <remap from="fix" to="navsat/fix" />
+    <param name="rot_covariance" value="99999" />
+    <param name="frame_id" value="base_link" />
+  </node>
+
+  <!--robot_pose_ekf定位节点-->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <remap from="odom" to="shigu_velocity_controller/odom"/>
+    <param name="imu_used" value="false"/>
+    <remap from="imu_data" to="imu/data"/>
+    <param name="vo_used" value="false"/>
+    <remap from="vo" to="zed_node/odom"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+  </node>
+
+  <!-- 发布cmd_vel -->
+  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
+
+  <!-- 运行joint_state_publisher节点，发布机器人的关节状态  -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> 
+
+  <!-- 运行robot_state_publisher节点，发布tf  -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!--速度复用-->
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam command="load" file="$(find shigu_control)/config/twist_mux.yaml" />
+    <remap from="cmd_vel_out" to="shigu_velocity_controller/cmd_vel"/>
+  </node>
+
+  <!--导入urdf模型-->
+  <!--<node
+    name="spawn_model"odom
+    pkg="gazebo_ros"
+    type="spawn_model" 
+    args="-file $(find shigu_description)/urdf/shigu.urdf -urdf -model shigu -z 0.5"
+    output="screen" />-->
+
+  <node name="spawn_shigu_model" pkg="gazebo_ros" type="spawn_model"
+    args="-x 0
+    -y 0
+    -z 0
+    -Y 0
+    -unpause
+    -urdf
+    -param robot_description
+    -model  shigu " />
+
+
+  <!--gmapping 建图-->
+  <!-- <include file="$(find shigu_navigation)/launch/gmapping.launch">
+  </include> -->
+  <!--gmapping 建图导航-->
+  <!-- <include file="$(find shigu_navigation)/launch/gmapping_demo.launch">
+  </include> -->
+
+</launch> -->
